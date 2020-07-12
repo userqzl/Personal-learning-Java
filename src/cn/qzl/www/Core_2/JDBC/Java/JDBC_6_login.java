@@ -31,6 +31,7 @@ public class JDBC_6_login {
     public boolean login (String user,String pwd){
         Connection con = null;
         Statement state = null;
+        ResultSet resultSet = null;
         try {
             con = JDBCUtil.getConnect();
             //获取数据库执行对象
@@ -39,13 +40,13 @@ public class JDBC_6_login {
             //定义sql语句
             String sql = "select * from user_login where user = "+"'"+user+"' and password = '"+pwd+"'";
             //执行sql语句
-            ResultSet resultSet = state.executeQuery(sql);
+            resultSet = state.executeQuery(sql);
             return resultSet.next();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         finally {
-            JDBCUtil.close(state,con);
+            JDBCUtil.close(resultSet,state,con);
         }
         return false;
     }
