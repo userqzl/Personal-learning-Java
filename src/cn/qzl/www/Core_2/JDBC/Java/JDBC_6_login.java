@@ -13,39 +13,40 @@ import java.util.Scanner;
 
 public class JDBC_6_login {
     public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("请输入账号：");
+        String user = in.next();
+        System.out.println("请输入密码：");
+        String pwd = in.next();
+
+        JDBC_6_login login = new JDBC_6_login();
+        boolean islogin = login.login(user,pwd);
+        if(islogin){
+            System.out.println("登录成功！");
+        }
+        else{
+            System.out.println("登录失败，用户名或密码错误！");
+        }
+    }
+    public boolean login (String user,String pwd){
         Connection con = null;
         Statement state = null;
         try {
             con = JDBCUtil.getConnect();
             //获取数据库执行对象
             state = con.createStatement();
-            //用户输入账号密码
-            String user = null;
-            String pwd = null;
-            Scanner in = new Scanner(System.in);
-            System.out.println("请输入账号：");
-            user = in.next();
-            System.out.println("请输入密码：");
-            pwd = in.next();
 
             //定义sql语句
-            String sql = "select password from user_login where user = "+"'"+user+"'";
+            String sql = "select * from user_login where user = "+"'"+user+"' and password = '"+pwd+"'";
             //执行sql语句
             ResultSet resultSet = state.executeQuery(sql);
-            while(resultSet.next()){
-                if(resultSet.getString("password").equals(pwd)){
-                    System.out.println("登录成功！");
-                }
-                else{
-                    System.out.println("登录失败，用户名或密码错误！");
-                }
-            }
+            return resultSet.next();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         finally {
             JDBCUtil.close(state,con);
         }
-        //
+        return false;
     }
 }
