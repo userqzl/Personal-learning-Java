@@ -3,10 +3,7 @@ package cn.qzl.www.Core_2.JDBC.util;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Properties;
 
 /**
@@ -36,7 +33,7 @@ public class JDBCUtil {
             ClassLoader classLoader = JDBCUtil.class.getClassLoader();
             URL res = classLoader.getResource("jdbc.properties");
             String path = res.getPath();
-            System.out.println(path);
+            //System.out.println(path);
             pro.load(new FileReader(path));
             //读取配置文件的值，赋值给实例域
             url = pro.getProperty("url");
@@ -65,6 +62,29 @@ public class JDBCUtil {
 
     //释放资源
     public static void close(Statement statement,Connection con){
+        if(statement != null){
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        if(con != null){
+            try {
+                con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    public static void close(ResultSet res,Statement statement, Connection con){
+        if(res != null){
+            try {
+                res.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
         if(statement != null){
             try {
                 statement.close();
