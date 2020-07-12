@@ -1,0 +1,23 @@
+
+集合类提供了ListIterator子接口用于list，里面有add等方法
+
+java.util.ListIterator<E>
+
+ - void add(E e)   //当前迭代器位置前添加元素
+ - void set(E e)   //用新元素取代next或previous上次访问的元素
+ - boolean hasPrevious()   //反向遍迭代链表时，如果下一个位置还有元素，返回true
+ - E previous()    //返回前一个对象，如果已经到达头部，抛出异常NoSuchElementException
+ - int nextIndex()     //返回下一次调用next时将返回的元素索引
+ - int previousIndex()     //返回下一次调用previous时将返回的元素索引
+ -
+ -
+ - java.util.LinkedList<E>
+ -
+ - LinkedList()    //构建一个空链表
+ - LinkedList(Collection<? extends E> e)    //构建一个空链表,并将集合中所有元素加入
+ - void addFirst(E e)      //将某个元素添加到头部
+ - void addLast(E e)       //将某个元素添加到尾部
+ - E getFirst()    //返回头部元素
+ - E getLast()     //返回尾部元素
+ - E removeFirst()     //删除并返回头部元素
+ - E removeLast()     //删除并返回尾部元素

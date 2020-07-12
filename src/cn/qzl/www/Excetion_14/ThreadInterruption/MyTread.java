@@ -1,0 +1,1 @@
+package cn.qzl.www.Excetion_14.ThreadInterruption;/** * @Author qzl * @Description * @Since 2020-05-04 10:23 */public class MyTread extends Thread{    @Override    public void run(){        int n = 0;        while(! isInterrupted()){            System.out.println("n = "+ n++);        }    }}

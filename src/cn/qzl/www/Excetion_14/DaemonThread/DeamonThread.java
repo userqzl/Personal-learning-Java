@@ -1,0 +1,1 @@
+package cn.qzl.www.Excetion_14.DaemonThread;/** * @Author qzl * @Description * @Since 2020-05-04 18:35 */public class DeamonThread extends Thread{    //这是一个守护线程    @Override    public void run() {        System.out.println("守护线程在执行");    }}

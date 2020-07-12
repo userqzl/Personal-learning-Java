@@ -1,0 +1,1 @@
+package cn.qzl.www.Excetion_6.lambda;/** * @Author qzl * @Description * @Since 2020-05-16 10:16 */public class demo_1 {    public static void main(String[] args) {    }}

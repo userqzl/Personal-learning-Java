@@ -1,0 +1,14 @@
+
+java.util.Set接口和java.util.List接口一样，同样继承自Collection接口，
+
+它与Collection接口中的方法基本一致，并没有对Collection接口进行功能上的
+
+扩充，只是比Collection接口更加严格了。与List接口不同的是，Set接口中元素
+
+无序，并且都会以某种规则保证存入的元素不出现重复。
+
+HashSet是根据对象的哈希值来确定元素在集合中的存储位置，因此具有良好的存取
+
+和查找性能。保证元素唯一性的方式依赖于：hashCode与equals方法。
+
+自定义对象使用set时，需要重写hashcode 和 equals 方法

@@ -1,0 +1,18 @@
+
+get set这种随机访问对链表来说效率很低，但对数组效率却很高
+
+类库中的ArrayList类也实现了List接口
+
+java.util.ArrayList
+
+- ArrayList<E>()      //构建一个空数组列表
+- ArrayList<E>(int init)      //指定容量构建一个数组列表
+- boolean add(E e)    //在数组列表添加一个元素，永远返回true
+- int size()      //返回列表中元素数量
+- void ensureCapacity(int capacity)   //确保数组在不重新分配空间的情况下能保存给定数量的元素
+- void trimToSize()   //将数组列表容量缩减到当前大小
+-
+- void set(int index,E obj)   //设置数组列表指定位置的值，将覆盖原来的值
+- E get()     //获取指定位置元素的值
+- void add(int index,E obj)       //在指定位置插入元素，后面的元素往后移动
+- E remove(int index)     //删除一个元素，并讲之后的元素往前移，返回删除的元素
